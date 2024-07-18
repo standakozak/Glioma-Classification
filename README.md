@@ -20,10 +20,13 @@ For each patient, each combination of a sequence (selected from *_T1c_bias, _DWI
 The extraction was done by PyRadiomics 3.0.1, extracting all 107 supported features for each combination, using default settings and no applied filters. This results in 856 extracted features for each patient.
 
 ## ML Models and Feature Selection
-TBD
+Classification models with multiple configurations were trained on the data with repeated 3-Fold Cross Validation. For each model split, the features were normalised by StandardScaler and the most important features were selected through RFECV (using the classifier itself to find the feature importance). The trained models include logistic regression, support vector machines with linear kernel, random forest classifier.
+
 
 ## Evaluation
-TBD
+From the current experiments, logistic regression and support vector machines got moderately good results (MCC 0.486 for logistic regression and 0.464 for SVM). However, those results were achieved with 140 features and after fine-tuning iterations. It is therefore possible, that the results overfitted on the dataset.
+
+Further experiments with more datapoints (> 50 per class) are needed to confirm the mentioned results.
 
 
 ## References
